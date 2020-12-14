@@ -10,6 +10,6 @@ const ProductSchema = new Schema({
   Higiene: [String],
 });
 
-const ProductModel = model("Prooduct", ProductSchema);
+const ProductModel = model("Product", ProductSchema);
 
 module.exports = ProductModel;
