@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const Lista = require("../models/ListaMercado");
+const ListaMongo = require("../models/ListaMongo");
 
 // Crud (CREATE): POST
 router.post("/lista", async (req, res) => {
   try {
     const result = await Lista.create(req.body);
-
     return res.status(201).json(result);
   } catch (err) {
     console.error(err);
@@ -14,6 +14,16 @@ router.post("/lista", async (req, res) => {
 });
 
 // cRud (READ): GET List
+router.get("/lista-de-produtos", async (req, res) => {
+  try {
+    const listaDeProdutos = await ListaMongo.find();
+    return res.status(200).json(listaDeProdutos);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ msg: err });
+  }
+});
+
 router.get("/lista", async (req, res) => {
   try {
     const listasDoUsuario = await Lista.find();
