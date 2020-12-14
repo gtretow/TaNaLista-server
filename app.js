@@ -10,12 +10,12 @@ app.use(express.json());
 app.use(cors({ origin: process.env.REACT_APP_URL }));
 require("./config/passport.config")(app);
 
-const userRouter = require("./routes/user.routes");
+const ListaRouter = require("./routes/lista.routes");
+app.use("/api", ListaRouter);
+
+const userRouter = require("./routes/usuarios.routes");
 app.use("/api", userRouter);
 
 app.listen(Number(process.env.PORT), () =>
   console.log(`Server up and running at port ${process.env.PORT}`)
 );
-
-
-//comentário para commit

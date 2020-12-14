@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/User");
+const User = require("../models/SignUp");
 
 // REST => REpresentational State Transfer
 
