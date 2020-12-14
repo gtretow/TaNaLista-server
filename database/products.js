@@ -1,4 +1,4 @@
-const Lista = require("../models/Lista");
+const ListaMongo = require("../models/ListaMongo");
 const mongoose = require("mongoose");
 
 const products = {
@@ -192,7 +192,7 @@ const products = {
 };
 
 mongoose
-  .connect("mongodb://localhost/products", {
+  .connect("mongodb://localhost/Proj3-Database", {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -203,7 +203,7 @@ mongoose
     );
   })
   .then(() => {
-    Lista.insertMany(products)
+    ListaMongo.insertMany(products)
       .then((result) => console.log("Populated database!", result))
       .catch((err) => console.error(err));
   })

@@ -3,11 +3,9 @@
 const { Schema, model } = require("mongoose");
 
 const ListaSchema = new Schema({
-  //   Despensa: [String],
-  //   Freezer: [String],
-  //   Geladeira: [String],
-  //   "Frutas e Hortaliças": [String],
-  //   Higiene: [String],
+  // id do usuário que criou a lista 
+  IdUser: { type: Schema.Types.ObjectId, ref: "User" },
+  Lista: {},
 });
 
 const ListaModel = model("Lista", ListaSchema);

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Lista = require("../models/Lista");
+const Lista = require("../models/ListaMercado");
 
 // Crud (CREATE): POST
 router.post("/lista", async (req, res) => {
