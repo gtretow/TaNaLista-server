@@ -1,13 +1,15 @@
+// Schema da lista do usuário.
+
 const { Schema, model } = require("mongoose");
 
-const ProductSchema = new Schema({
-  Despensa: [String],
-  Freezer: [String],
-  Geladeira: [String],
-  "Frutas e Hortaliças": [String],
-  Higiene: [String],
+const ListaSchema = new Schema({
+  //   Despensa: [String],
+  //   Freezer: [String],
+  //   Geladeira: [String],
+  //   "Frutas e Hortaliças": [String],
+  //   Higiene: [String],
 });
 
-const ProductModel = model("Prooduct", ProductSchema);
+const ListaModel = model("Lista", ListaSchema);
 
-module.exports = ProductModel;
+module.exports = ListaModel;
