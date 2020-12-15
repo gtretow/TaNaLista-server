@@ -142,7 +142,7 @@ const products = {
     "Acelga",
   ],
   Higiene: [
-    "Absorvente",
+    "ampons",
     "Acetona",
     "Algodão",
     "Antisséptico bucal",
