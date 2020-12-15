@@ -20,6 +20,20 @@ router.post(
 );
 
 // cRud (READ): GET List
+router.get(
+  "/listas-criadas",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const listasSalvas = await Lista.find({ IdUser: req.user._id });
+      return res.status(200).json(listasSalvas);
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ msg: err });
+    }
+  }
+);
+
 router.get("/lista-de-produtos", async (req, res) => {
   try {
     const listaDeProdutos = await ListaMongo.find();
