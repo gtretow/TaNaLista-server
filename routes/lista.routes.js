@@ -9,6 +9,7 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
+      req.body.IdUser = req.user._id;
       const result = await Lista.create(req.body);
       return res.status(201).json(result);
     } catch (err) {
