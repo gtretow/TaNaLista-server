@@ -3,9 +3,9 @@
 const { Schema, model } = require("mongoose");
 
 const ListaSchema = new Schema({
-  // id do usuário que criou a lista 
+  // id do usuário que criou a lista
   IdUser: { type: Schema.Types.ObjectId, ref: "User" },
-  Lista: {},
+  Lista: [],
 });
 
 const ListaModel = model("Lista", ListaSchema);
