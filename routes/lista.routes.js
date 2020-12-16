@@ -87,7 +87,7 @@ router.patch(
   async (req, res) => {
     try {
       const { id } = req.params;
-
+      req.body.IdUser = req.user._id;
       const lista = await Lista.findOneAndUpdate({ _id: id }, req.body, {
         new: true,
       });
