@@ -109,7 +109,6 @@ router.delete(
   "/lista/:id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    console.log(req.params.id);
     try {
       const { id } = req.params;
 
