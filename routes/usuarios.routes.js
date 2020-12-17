@@ -60,8 +60,6 @@ router.post("/signup", async (req, res) => {
     // 4. Salvar o email e a senha criptografada no banco
     const result = await User.create({ email, name, passwordHash });
 
-    console.log(result);
-
     return res.status(201).json(result);
   } catch (err) {
     console.error(err);
@@ -110,8 +108,6 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      console.log(req.user);
-
       const result = await User.findOne({ _id: req.user._id });
 
       res
