@@ -22,12 +22,14 @@ router.post("/signup", async (req, res) => {
   const errors = {};
   // Validacao de nome de usuario: é obrigatório, tem que ser do tipo string e não pode ter mais de 50 caracteres
   if (!name || typeof name !== "string" || name.length > 50) {
-    errors.name = "Username is required and should be 50 characters max.";
+    errors.name =
+      "O nome de usuário é obrigatório e deve ter no máximo 50 caracteres.";
   }
 
   // Tem que ser um email valido, é obrigatório
   if (!email || !email.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)) {
-    errors.email = "Email is required and should be a valid email address";
+    errors.email =
+      "O e-mail é obrigatório e deve ser um endereço de e-mail válido";
   }
 
   // Senha é obrigatória, precisa ter no mínimo 8 caracteres, precisa ter letras maiúsculas, minúsculas, números e caracteres especiais
@@ -38,7 +40,7 @@ router.post("/signup", async (req, res) => {
     )
   ) {
     errors.password =
-      "Password is required, should be at least 8 characters long, should contain an uppercase letter, lowercase letter, a number and a special character";
+      "A senha é obrigatória, deve ter pelo menos 8 caracteres, deve conter uma letra maiúscula, uma letra minúscula, um número e um caractere especial";
   }
 
   // Se o objeto errors tiver propriedades (chaves), retorne as mensagens de erro
@@ -71,7 +73,7 @@ router.post("/signup", async (req, res) => {
     } else if (err.code === 11000) {
       res.status(400).json({
         error:
-          "Name and email need to be unique. Either username or email is already used.",
+          "O nome e o e-mail devem ser exclusivos. O nome de usuário ou o e-mail já foi usado.",
       });
     }
   }
@@ -116,7 +118,7 @@ router.get(
 
       res
         .status(200)
-        .json({ message: "This is a protected route", user: result });
+        .json({ message: "Esta é uma rota protegida", user: result });
     } catch (err) {
       console.error(err);
       return res.status(500).json({ msg: err });
